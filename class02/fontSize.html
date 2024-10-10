@@ -26,13 +26,11 @@
 
 
         plusBtn.addEventListener('click', () => {
-            count += 1;
-            result.style.fontSize=`${count}px`;
+            result.style.fontSize=`${count+=1}px`;
         })
 
         minusBtn.addEventListener('click', () => {
-            count -= 1;
-            result.style.fontSize = `${count}px`;
+            result.style.fontSize = `${count-=1}px`;
 
         })
 

@@ -14,19 +14,26 @@
     </div>
 
     <script>
-        bgColor=document.querySelector("body");
-        redBtn = document.querySelector("#red");
-        blueBtn = document.querySelector("#blue");
-        greenBtn = document.querySelector("#green");
+        let bgColor=document.body;
+        let redBtn = document.querySelector("#red");
+        let blueBtn = document.querySelector("#blue");
+        let greenBtn = document.querySelector("#green");
+
+        let redCode=redBtn.innerHTML;
+        let blueCode = blueBtn.innerHTML;
+        let greenCode = greenBtn.innerHTML;
+
 
         redBtn.addEventListener('click',()=>{
-            bgColor.style.backgroundColor="red";
+            console.log(redCode);
+            bgColor.style.backgroundColor = `#${redCode}`;
+            console.log(bgColor.style.backgroundColor);
         })
         blueBtn.addEventListener('click', () => {
-            bgColor.style.backgroundColor = "blue";
+            bgColor.style.backgroundColor = `#${ blueCode }`;
         })
         greenBtn.addEventListener('click', () => {
-            bgColor.style.backgroundColor = "green";
+            bgColor.style.backgroundColor = `#${ greenCode }`;
         })
 
     </script>
