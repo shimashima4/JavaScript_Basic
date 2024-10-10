@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数</title>
+</head>
+<body>
+    <main>
+        <p id="change">数字を変化させよう</p>
+        <p id="result">0</p>
+        <button id="plus" style="width: 30px;">+</button>
+        <button id="minus" style="width: 30px;">-</button>
+    </main>
+    <script>
+        let plusBtn = document.getElementById("plus");
+        let minusBtn = document.getElementById("minus");
+        let result=document.getElementById("result");
+
+        let changeText=document.getElementById("change");
+        let count = 0;
+        let dif=0;
+
+        const printResult=()=>{
+            console.log(count);
+            if(dif<count){
+                changeText.innerHTML=`${count-1}👉${count}へ変化しました`;
+            }else{
+                changeText.innerHTML=`${count+1}👉${count}へ変化しました`;
+            }
+            result.innerHTML=count;
+            dif=count;
+        }
+
+        plusBtn.addEventListener('click' , ()=>{
+            count+=1;
+            printResult();
+        })
+
+        minusBtn.addEventListener('click' , ()=>{
+            count-=1;
+            printResult();
+
+        })
+
+    </script>
+</body>
+</html>

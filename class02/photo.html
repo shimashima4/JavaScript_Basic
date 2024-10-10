@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+</head>
+<body>
+    <div>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+        <button id="set"></button>
+    </div>
+    <p id="result"></p>
+    <img id="photo" src="">
+
+    <script>
+        let plusBtn=document.querySelector("#plus");
+        let minusBtn=document.querySelector("#minus");
+        let setBtn=document.querySelector("#set");
+        let photoImg=document.querySelector("#photo");
+        let resultText=document.querySelector("#result");
+
+        let srcText= resultText.innerHTML;
+        let count=0;
+        let srcFirstText = "https://picsum.photos/400/300?image="
+
+        setBtn.innerHTML=count;
+        srcText=srcFirstText+count;
+        resultText.innerHTML = srcText;
+        photoImg.setAttribute('src',srcText);
+        console.log(srcText);
+
+        plusBtn.addEventListener('click',()=>{
+            count++;
+            setBtn.innerHTML=count;
+        })
+
+        minusBtn.addEventListener('click' , ()=>{
+            if(count>0){
+                count--;
+                setBtn.innerHTML = count;
+            }else{
+                count=0;
+            }
+
+        })
+
+        setBtn.addEventListener('click',()=>{
+            srcText = srcFirstText + count;
+            resultText.innerHTML=srcText;
+            photoImg.setAttribute("src",srcText);
+        })
+
+    </script>
+</body>
+</html>

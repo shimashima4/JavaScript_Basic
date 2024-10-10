@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+</head>
+<body>
+<body>
+    <div>
+        <button id="red">ff0000</button>
+        <button id="green">00ff00</button>
+        <button id="blue">0000ff</button>
+    </div>
+
+    <script>
+        bgColor=document.querySelector("body");
+        redBtn = document.querySelector("#red");
+        blueBtn = document.querySelector("#blue");
+        greenBtn = document.querySelector("#green");
+
+        redBtn.addEventListener('click',()=>{
+            bgColor.style.backgroundColor="red";
+        })
+        blueBtn.addEventListener('click', () => {
+            bgColor.style.backgroundColor = "blue";
+        })
+        greenBtn.addEventListener('click', () => {
+            bgColor.style.backgroundColor = "green";
+        })
+
+    </script>
+</body>
+</body>
+</html>

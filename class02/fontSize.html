@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数</title>
+</head>
+
+<body>
+    <main>
+        <p id="result">0</p>
+        <button id="plus" style="width: 30px; position: absolute; top: 150px;">+</button>
+        <button id="minus" style="width: 30px; position: absolute; top: 150px; left: 45px;">-</button>
+    </main>
+    <script>
+        let plusBtn = document.getElementById("plus");
+        let minusBtn = document.getElementById("minus");
+        let result = document.getElementById("result");
+
+        let changeText = document.getElementById("change");
+        let count = 16;
+        let dif = 0;
+
+        result.style.fontSize = `${count}px`;
+
+
+        plusBtn.addEventListener('click', () => {
+            count += 1;
+            result.style.fontSize=`${count}px`;
+        })
+
+        minusBtn.addEventListener('click', () => {
+            count -= 1;
+            result.style.fontSize = `${count}px`;
+
+        })
+
+    </script>
+</body>
+
+</html>
