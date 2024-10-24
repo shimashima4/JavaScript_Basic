@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img src="./monster.png" alt="monster" id="image">
+    <p id="hit"></p>
+    <p id="text"></p>
+    <script>
+        let monster=document.querySelector("#image");
+        let hitpoint=document.querySelector("#hit");
+        let message=document.querySelector("#text");
+        const plus=1;
+        let hp=0;
+
+
+        hitpoint.innerHTML=hp;
+        monster.addEventListener('click',()=>{
+            hp += plus;
+            if(hp>30){
+                hp=30;
+
+            }else{
+                hitpoint.innerHTML = `${hp}回`;
+                if(hp%10==0){
+                    if(hp==30){
+                        hitpoint.innerHTML = `${hp}回達成！クリア！`;
+                        console.log(22222);
+                    }else{
+                        hitpoint.innerHTML = `${hp}回達成、おめでとう！`;
+
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

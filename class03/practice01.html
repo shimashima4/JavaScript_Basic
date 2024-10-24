@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let seireki=2024;
+        let nengo;
+        const reiwa=2019,heisei=1989,showa=1926;
+        if(seireki>=reiwa){
+            nengo=seireki%reiwa;
+            if(nengo>0){
+                console.log(`令和${nengo+1}年！`);
+            }else if(nengo==0){
+                console.log("令和元年！")
+            }
+            else{
+                console.log("令和はいつまで続くんでしょうね")
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="inner">
+        <button id="btn">メニュー</button>
+    </div>
+        <div id="menu">
+            <ul>
+                <li>HOME</li>
+                <li>ABOUT</li>
+                <li>CONTACT</li>
+            </ul>
+        </div>
+
+        <script>
+            let navi=document.querySelector("#menu");
+            let button=document.querySelector("#btn");
+            button.addEventListener('click',()=>{
+                if(navi.classList.contains("action")){
+                    navi.classList.remove("action");
+                }else{
+                    navi.classList.add("action");
+                }
+            })
+        </script>
+</body>
+</html>

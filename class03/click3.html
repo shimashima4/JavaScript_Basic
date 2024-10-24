@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #image {
+            transition: .5s;
+        }
+
+        .finish {
+            transform: rotate(720deg) scale(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="./monster.png" alt="monster" id="image">
+    <p id="hit"></p>
+    <p id="text"></p>
+    <script>
+        let monster=document.querySelector("#image");
+        let hitpoint=document.querySelector("#hit");
+        let message=document.querySelector("#text");
+        const minus=1;
+        let hp=10;
+
+
+        hitpoint.innerHTML=hp;
+        monster.addEventListener('click',()=>{
+            hp -= minus;
+            if(hp<0){
+                hp=0;
+            }else{
+                hitpoint.innerHTML = hp;
+                if(hp==0){
+                    message.innerHTML = "きみ　は　モンスター　を　たおした！";
+                    monster.classList.add('finish');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

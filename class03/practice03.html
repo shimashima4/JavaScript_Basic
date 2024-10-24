@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let seireki = 1989;
+        let nengo;
+        const reiwa = 2019, heisei = 1989, showa = 1926 ,mirai=2025,mukashi=1925;
+        const re="令和",hei="平成",sho="昭和";
+
+        const nengoMath=(nen,sei,jidai,name)=>{
+            nen = sei % jidai;
+            if(nen>0){
+                console.log(`${name}${nen+1}年！`);
+            }else{
+                console.log(`${name}元年！`);
+            }
+        }
+
+        if (seireki >= mirai) {
+            console.log("未来！");
+        }else if(seireki >= reiwa){
+            nengoMath(nengo,seireki,reiwa,re);
+        }else if(seireki >= heisei){
+            nengoMath(nengo, seireki, heisei,hei);
+        }else if(seireki >= showa){
+            nengoMath(nengo, seireki, showa,sho);
+        }else{
+            console.log("大昔！");
+        }
+    </script>
+</body>
+
+</html>
