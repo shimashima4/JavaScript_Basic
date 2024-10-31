@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="btn" class="fortune">占う</button>
+    <p><img id="result" class="" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="占う"></p>
+    <p id="poe"></p>
+    <script>
+        let btn = document.querySelector('#btn');
+        let message = document.querySelector('#result')
+        let poe = document.querySelector('#poe');
+        let path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/';
+        let unsei = ['daikichi.png','chuukichi.png','syoukichi.png','kyou.png','daikyou.png'];
+        let btnName = btn.className;
+        let huga = ['大吉', '中吉', '小吉', '凶', '大凶'];
+        let tenkei = ['地球を手にいれる', '税率が3%になる', 'あ！ポケットに飴ちゃんが！', '改札をうまく通れなくて恥ずかしい思いをする', '竜宮城に連れてかれる'];
+
+        console.log(message);
+
+        btn.onclick = () => {
+            let num = Math.floor(Math.random() * 5);
+            console.log(num);
+
+            switch(message.classList.contains('move')){
+                case true:message.classList.remove('move');
+                break;
+
+                case false:message.classList.add('move');
+            }
+            // switch(num){
+            //     case 0:
+            //         poe.innerHTML = (tenkei[num]);
+            //         message.setAttribute('src', `${path + unsei[num]}`);
+
+            //     case 1:
+            //         poe.innerHTML = (tenkei[num]);
+            //         message.setAttribute('src', `${path + unsei[num]}`);
+
+            //     case 2:
+            //         poe.innerHTML = (tenkei[num]);
+            //         message.setAttribute('src', `${path + unsei[num]}`);
+
+            //     case 3:
+            //         poe.innerHTML = (tenkei[num]);
+            //         message.setAttribute('src', `${path + unsei[num]}`);
+
+            //     case 4:
+            //         poe.innerHTML = (tenkei[num]);
+            //         message.setAttribute('src', `${path + unsei[num]}`);
+            // }
+
+            poe.innerHTML = (tenkei[num]);
+            message.setAttribute('src',`${path+unsei[num]}`);
+        }
+    </script>
+</body>
+
+</html>

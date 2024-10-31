@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="btn" class="fortune">占う</button>
+    <p><img id="result" class="" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="占う"></p>
+    <p id="poe"></p>
+    <p id="daikichi"></p>
+    <script>
+        let btn = document.querySelector('#btn');
+        let message = document.querySelector('#result')
+        let poe = document.querySelector('#poe');
+        let dai = document.querySelector('#daikichi');
+        let path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/';
+        let unsei = ['daikichi.png','chuukichi.png','syoukichi.png','kyou.png','daikyou.png'];
+        let btnName = btn.className;
+        let huga = ['大吉', '中吉', '小吉', '凶', '大凶'];
+        let tenkei = ['地球を手にいれる', '税率が3%になる', 'あ！ポケットに飴ちゃんが！', '改札をうまく通れなくて恥ずかしい思いをする', '竜宮城に連れてかれる'];
+        let counter = [];
+        let len=5;
+        let zenkai=-1,num=0;
+        let kyocount=0;
+
+        // 配列初期化
+        for (let i = 0; i < len; i++) {
+                counter[i] = 0;  // 0 で初期化
+            }
+
+        // 被り調整にあたってめんどくさいので関数化
+        const uranai=(suji)=>{
+            let a=-1;
+            switch (suji) {
+                case 0:
+                    a = 0;
+                    break;
+
+                case 1:
+                    a = 1;
+                    break;
+
+                case 2:
+                    a = 1;
+                    break;
+
+                case 3:
+                    a = 2;
+                    break;
+
+                case 4:
+                    a = 2;
+                    break;
+
+                case 5:
+                    a = 2;
+                    break;
+
+                case 6:
+                    a = 2;
+                    break;
+
+                case 7:
+                    a = 3;
+                    break;
+
+                case 8:
+                    a = 3;
+                    break;
+
+                case 9:
+                    a = 4;
+                    break;
+            }
+
+            return a;
+        }
+
+        // クリックされたときの処理
+        btn.onclick = () => {
+            // 占ってる
+            num = Math.floor(Math.random() * 10);
+
+            // 確率を調整
+            num=uranai(num);
+
+            // 大凶の接待
+            if (num==4 && counter[4] >= 3) {
+                while(num==4){
+                    num = Math.floor(Math.random() * 10);
+                    num = uranai(num);
+                }
+                counter[4] = 3;
+                kyocount=1;
+            }
+            counter[num]+=1;
+
+            // 前回の結果と被ってたらやり直す
+            if(kyocount==1){
+                while(num==zenkai||num==4){
+                    num = Math.floor(Math.random() * 10);
+                    num = uranai(num);
+                }
+            }else{
+                while(num==zenkai){
+                        num=Math.floor(Math.random() * 10);
+                        num=uranai(num);
+                }
+            }
+
+            // 大吉
+            if(num==0){
+                daikichi.innerHTML='大吉は'+counter[0]+'回目';
+            }else{
+                daikichi.innerHTML='';
+            }
+
+
+
+
+            console.log(num);
+
+
+
+            // クラスの付与
+            switch(message.classList.contains('move')){
+                case true:message.classList.remove('move');
+                break;
+
+                case false:message.classList.add('move');
+            }
+
+            // 表示
+            poe.innerHTML = (tenkei[num]);
+            message.setAttribute('src',`${path+unsei[num]}`);
+
+            // 結果を格納
+            zenkai = num;
+        }
+    </script>
+</body>
+
+</html>

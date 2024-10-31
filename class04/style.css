@@ -1,0 +1,9 @@
+.move{
+    transform: rotateY(720deg);
+    transition:  all ease 1.5s;
+}
+
+p img{
+    transform: rotate(0deg);
+    transition: all ease 1.5s;
+}

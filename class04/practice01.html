@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice01</title>
+</head>
+<body>
+    <button id="btn" class="red">click!</button>
+    <script>
+        let btn = document.querySelector('#btn');
+        let body = document.querySelector('body');
+        let btnName = btn.className;
+        let color=[0,0,0];
+
+        btn.onclick = ()=>{
+                    switch(btnName){
+                        case 'red':
+                            switch(color[0]){
+                                case 1:
+                                    body.style.backgroundColor='white';
+                                    color[0]=0;
+                                    break;
+
+                                case 0:
+                                    body.style.backgroundColor='red';
+                                    color[0]=1;
+                                    break;
+                            }
+                            break;
+
+                        case 'blue':
+                            switch (color[0]) {
+                                case 1:
+                                    body.style.backgroundColor = 'white';
+                                    color[0] = 0;
+                                    break;
+
+                                case 0:
+                                    body.style.backgroundColor = 'blue';
+                                    color[0] = 1;
+                                    break;
+                            }
+                            break;
+
+                        case 'green':
+                            switch (color[0]) {
+                                case 1:
+                                    body.style.backgroundColor = 'white';
+                                    color[0] = 0;
+                                    break;
+
+                                case 0:
+                                    body.style.backgroundColor = 'green';
+                                    color[0] = 1;
+                                    break;
+                            }
+                            break;
+
+                        default:
+                            body.style.backgroundColor = 'white';
+                            break;
+                    }
+        }
+    </script>
+</body>
+</html>
