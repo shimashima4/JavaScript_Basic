@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="count">カウント</button>
+    <button id="view">表示</button>
+    <button id="reset">リセット</button>
+    <p id="text"></p>
+
+        <script>
+            let count=document.querySelector('#count');
+            let view=document.querySelector('#view');
+            let text=document.querySelector('#text');
+            let reset=document.querySelector('#reset');
+            let sum=0,number=0,addNumber=0;
+
+            count.onclick=()=>{
+                number+=1;
+                text.innerHTML=number;
+            }
+
+            view.onclick=()=>{
+                while(addNumber<=number){
+                    sum+=addNumber;
+                    addNumber++;
+                }
+                text.innerHTML=`合計は${sum}`;
+            }
+
+            reset.onclick=()=>{
+                number=0;
+                sum=0;
+                addNumber=0;
+                text.innerHTML=0;
+            }
+        </script>
+</body>
+</html>

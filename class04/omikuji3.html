@@ -13,6 +13,7 @@
     <p><img id="result" class="" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="占う"></p>
     <p id="poe"></p>
     <p id="daikichi"></p>
+    <div id="list"></div>
     <script>
         let btn = document.querySelector('#btn');
         let message = document.querySelector('#result')
@@ -20,20 +21,22 @@
         let dai = document.querySelector('#daikichi');
         let path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/';
         let unsei = ['daikichi.png','chuukichi.png','syoukichi.png','kyou.png','daikyou.png'];
+        let list = document.querySelector('#list');
         let btnName = btn.className;
         let huga = ['大吉', '中吉', '小吉', '凶', '大凶'];
         let tenkei = ['地球を手にいれる', '税率が3%になる', 'あ！ポケットに飴ちゃんが！', '改札をうまく通れなくて恥ずかしい思いをする', '竜宮城に連れてかれる'];
         let counter = [];
         let len=5;
-        let zenkai=-1,num=0;
+        let zenkai=-1,num=0,num2=0;
         let kyocount=0;
+        let a=0,b=0,c=0,d=0,e=0;
 
         // 配列初期化
         for (let i = 0; i < len; i++) {
                 counter[i] = 0;  // 0 で初期化
             }
 
-        // 被り調整にあたってめんどくさいので関数化
+        // 被り調整関数化
         const uranai=(suji)=>{
             let a=-1;
             switch (suji) {
@@ -88,17 +91,20 @@
 
             // 確率を調整
             num=uranai(num);
+            counter[num]+=1;
+            num2=num;
+
+            // 確認表示
+            if(num==4 ){
+                console.log("⭐️"+counter[4]);
+            }
 
             // 大凶の接待
-            if (num==4 && counter[4] >= 3) {
-                while(num==4){
-                    num = Math.floor(Math.random() * 10);
-                    num = uranai(num);
-                }
-                counter[4] = 3;
+            if (num==4 && counter[4] > 3) {
                 kyocount=1;
             }
-            counter[num]+=1;
+
+
 
             // 前回の結果と被ってたらやり直す
             if(kyocount==1){
@@ -112,10 +118,13 @@
                         num=uranai(num);
                 }
             }
+            // counterに回数を代入
+            counter[num2] -= 1;
+            counter[num] += 1;
 
             // 大吉
             if(num==0){
-                daikichi.innerHTML='大吉は'+counter[0]+'回目';
+                daikichi.innerHTML='大吉は'+(counter[0])+'回目';
             }else{
                 daikichi.innerHTML='';
             }
@@ -123,8 +132,12 @@
 
 
 
-            console.log(num);
-
+            console.log(num+"//");
+            console.log(counter[0]);
+            console.log(counter[1]);
+            console.log(counter[2]);
+            console.log(counter[3]);
+            console.log(counter[4]);
 
 
             // クラスの付与
@@ -138,6 +151,8 @@
             // 表示
             poe.innerHTML = (tenkei[num]);
             message.setAttribute('src',`${path+unsei[num]}`);
+
+            list.innerHTML = `<li>大吉：${counter[0]}</li> <li>中吉：${counter[1]}</li> <li>小吉：${counter[2]}</li> <li>凶：${counter[3]}</li> <li>大凶：${counter[4]}</li>`;
 
             // 結果を格納
             zenkai = num;
