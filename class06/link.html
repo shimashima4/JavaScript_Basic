@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>link</title>
+</head>
+<body>
+    <ul class="links">
+        <li><a href="https://computer.trident.ac.jp/courses/game_science/">ゲームサイエンス学科</a></li>
+        <li><a href="https://computer.trident.ac.jp/courses/cg_specialist/">CGスペシャリスト学科</a></li>
+        <li><a href="https://computer.trident.ac.jp/courses/web_design/">Web学科</a></li>
+    </ul>
+    <p class="result">URLが表示されます。</p>
+
+    <script>
+        const li=document.querySelectorAll("a");
+        const result=document.querySelector(".result");
+        let att="null";
+
+        const hover=[...Array(3)].map(()=>0);
+        console.log(li);
+        for(let i=0;i<hover.length;i++){
+            hover[i]=li[i].addEventListener('mouseover',()=>{
+                result.innerHTML=li[i].getAttribute("href");
+                console.log(li[i].getAttribute('href'));
+            })
+        }
+    </script>
+</body>
+</html>

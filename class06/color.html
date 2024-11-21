@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="red" class="btn">aa3333</button>
+    <button id="green" class="btn">33aa33</button>
+    <button id="blue" class="btn">3333aa</button>
+
+    <script>
+        const btn=document.querySelectorAll("button");
+        const body=document.querySelector("body");
+        // const red=document.querySelector("#red");
+        // const green=document.querySelector("#green");
+        // const blue=document.querySelector("#blue");
+
+        console.log(btn);
+
+        for(let i=0;i<btn.length;i++){
+            btn[i].onclick=()=>{
+                body.style.backgroundColor=`#${btn[i].textContent}`;
+            }
+            console.log(btn[i].textContent);
+        }
+
+        // btn.addEventListener('click', (a) => {
+        //     let value=a.id
+        //     console.log(value);
+        //     console.log("aaa");
+        //     })
+
+        // btn.onclick=(a) => {
+        //     let value=a.id
+        //     console.log(value);
+        //     console.log("aaa");
+        //     }
+    </script>
+</body>
+</html>

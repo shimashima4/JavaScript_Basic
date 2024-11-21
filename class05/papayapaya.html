@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+
+        .block{
+            display: block;
+            width: 30vw;
+            min-width: 400px;
+            margin: 0 auto;
+        }
+
+        input#btn{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h3>指定した範囲の倍数の合計を出すサイト</h3>
+    <div class="block">
+        <lable>倍数：<input type="number" value="null" id="number"></lable><br>
+        <lable>範囲：<input type="number" value="null" id="scope"></lable><br>
+        <label for=""><input type="submit" value="決定"  id="btn"></label>
+    </div>
+    <br><small>※半角数字で正の整数を入力してください</small>
+    <br>
+    <p id="answer"></p>
+
+    <script>
+        let btn=document.querySelector("#btn");
+        let kisu=0,sum=0,value="null",scopeValue=0,answer=document.querySelector("#answer");
+
+        btn.onclick=()=>{
+            let number=document.querySelector("#number");
+            let scope=document.querySelector("#scope");
+            if(number.value>0 && scope.value>number.value){
+                value=number.value;
+                scopeValue=scope.value;
+                console.log(number.value);
+                while(kisu<=scopeValue){
+                    if(kisu%value==0){
+                        sum+=kisu;
+                        kisu++;
+                    }else{
+                        kisu++;
+                        continue;
+                    }
+                }
+                answer.innerHTML=`${scopeValue}までの${value}の倍数の合計は${sum}です`;
+                answer.style = "color:blue";
+            }else{
+                answer.innerHTML = "いずれも半角数字で、範囲＞倍数になるよう入力してください";
+                answer.style="color:red";
+            }
+            sum=0;
+            kisu=0;
+        }
+    </script>
+</body>
+</html>

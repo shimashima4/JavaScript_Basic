@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+    <style>
+        #result {
+            transition: 1s;
+        }
+
+        .active {
+            transform: rotateY(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">占う</button>
+    <p><img id="result" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt=""></p>
+    <p id="message">何か一言が表示されます。</p>
+    <ul id="count">
+    </ul>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const result = document.getElementById('result');
+        const message = document.getElementById('message');
+        const count = document.querySelector('#count');
+        const path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji';
+        const un=["大吉","中吉","小吉","凶","大凶"]
+        const messageList = ['買ってないのに宝くじが当たる', '何もしてないのに褒められる', '頭皮の調子が良い', 'コンタクトレンズが割れる', 'どこかの骨を折る', 'エラー'];
+        const pathList = ["/daikichi.png","/chuukichi.png","/syoukichi.png","/kyou.png","/daikyou.png"];
+        const counter = [...Array(5)].map(() => 0);
+        console.log(counter);
+
+
+
+        btn.addEventListener('click', function () {
+            const num = Math.floor(Math.random() * 5);
+
+            if(num<5){
+                result.setAttribute('src',path+pathList[num]);
+                message.innerHTML=messageList[num];
+                counter[num]+=1;
+                count.innerHTML="";
+                for(let i=0;i<5;i++){
+                    count.innerHTML +=`<li>${un[i]}：${counter[i]}回</li>`;
+                }
+            }else{
+                console.log(messageList[5]);
+            }
+
+            result.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
