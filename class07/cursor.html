@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            cursor: none;
+        }
+
+        #icon {
+            width: 50px;
+            position: absolute;
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="icon" src="https://www.svgrepo.com/show/489642/pencil.svg" alt="" />
+
+    <script>
+        const icon=document.getElementById("icon");
+        let x=0,y=0;
+        document.addEventListener("mousemove",(e)=>{
+            console.log(e.clientX,e.clientY);
+            x=e.clientX;
+            y=e.clientY;
+            icon.style.top=`${e.clientY}px`;
+            icon.style.left= `${e.clientX}px`;
+        });
+        document.addEventListener("mousedown",()=>{
+            icon.style.transform="scale(1.5)";
+            icon.style.transition="transform 0.2s";
+        });
+        document.addEventListener("mouseup",()=>{
+            icon.style.transform="scale(1)";
+            icon.style.transition = "transform 0.2s";
+        });
+    </script>
+</body>
+</html>

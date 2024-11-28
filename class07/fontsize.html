@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fontsize</title>
+</head>
+<body>
+    <div>
+        <button class="btn">0.5rem</button>
+        <button class="btn">1rem</button>
+        <button class="btn">1.5rem</button>
+    </div>
+    <h1>見出しです。</h1>
+    <p>本文です。</p>
+
+    <script>
+        const btn=document.querySelectorAll(".btn");
+        const body=document.querySelector("body");
+        let text=""
+        for(let i=0;i<btn.length;i++){
+            btn[i].onclick=()=>{
+                text=btn[i].innerHTML;
+                body.style.fontSize=text;
+                console.log(btn[i].style.fontSize);
+            }
+        }
+    </script>
+</body>
+</html>
