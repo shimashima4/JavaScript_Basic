@@ -46,6 +46,7 @@
         <button class="btn" id="css">CSS</button>
         <button class="btn" id="javascript">JavaScript</button>
         <button class="btn" id="php">PHP</button>
+        <button class="btn" id="reset">リセット</button>
     </div>
 
     <div class="postall">
@@ -77,11 +78,18 @@
             btnall[i].onclick=()=>{
                 idName=btnall[i].getAttribute("id");
                 console.log(idName);
-                for(let j=0;j<postall.length;j++){
-                    if(postall[j].getAttribute("class") == idName){
+                if(idName=="reset"){
+                    for (let j = 0; j < postall.length; j++) {
                         postall[j].style.display="block";
-                    }else{
-                        postall[j].style.display="none";
+                    }
+                }
+                else{
+                    for(let j=0;j<postall.length;j++){
+                        if(postall[j].getAttribute("class") == idName){
+                            postall[j].style.display="block";
+                        }else{
+                            postall[j].style.display="none";
+                        }
                     }
                 }
             }
