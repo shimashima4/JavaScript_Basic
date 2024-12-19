@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice1</title>
+</head>
+<body>
+    <input type="text" id="suji">
+    <input type="submit" id="submit">
+    <p id="text"></p>
+    <script>
+        const suji=document.querySelector("#suji");
+        const submit=document.querySelector("#submit");
+        const text=document.querySelector("#text");
+        let a=999;
+
+        function math(aaa) {
+            aaa = suji.value;
+            if (aaa < 10) {
+                aaa = `0${aaa}`;
+            }
+            return aaa;
+        }
+
+        submit.onclick=()=>{
+            text.innerHTML = math(a);
+
+        }
+    </script>
+</body>
+</html>

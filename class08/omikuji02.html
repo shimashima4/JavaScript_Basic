@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omikuji1
+    </title>
+</head>
+<body>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <img src="" alt="">
+    <script>
+        const url = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/';
+        const files = ['daikichi.png', 'chuukichi.png', 'syoukichi.png', 'kyou.png', 'daikyou.png'];
+        const img=document.querySelector("img");
+        const start=document.querySelector("#start");
+        const sto=document.querySelector("#stop");
+        let timer,n=-1;
+
+
+        img.src=url+"omikuji.png";
+
+        const omikujiFunc=function(){
+            n++;
+            if(n>files.length-1){
+                n=0;
+            };
+            // console.log(url+files[n]);
+            img.src=url+files[n];
+            timer =setTimeout(omikujiFunc,300);
+        };
+
+        sto.onclick=()=>{
+            clearTimeout(timer);
+            n=0;
+            console.log("stop");
+        };
+
+        start.onclick=()=>{
+            clearTimeout(timer);
+            omikujiFunc();
+        };
+    </script>
+</body>
+</html>

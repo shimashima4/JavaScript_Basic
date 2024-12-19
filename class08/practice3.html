@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice3</title>
+</head>
+<body>
+<script>
+    const colors=["red","blue","green"];
+    const body=document.querySelector("body");
+    const html=document.querySelector("html");
+    let count=0 ,timer;
+
+    const reset=()=>{
+        body.style.backgroundColor=`rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random() * 256) },${Math.floor(Math.random() * 256) })`;
+    };
+
+    const countUp = () => {
+            console.log(count++);
+        };
+    timer = setInterval(reset,1000);
+
+
+</script>
+</body>
+</html>
