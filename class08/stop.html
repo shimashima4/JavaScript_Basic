@@ -18,18 +18,18 @@
         let timer,num,count=0;
         const counter=()=>{
             count+=1;
-            time.innerHTML=count;
+            time.textContent=count;
         }
         start.onclick=()=>{
-            para.innerHTML="";
+            para.textContent="";
             timer=setInterval(counter,50);
         }
         stoped.onclick=()=>{
             clearInterval(timer);
             if(count==100){
-                para.innerHTML="すごい！";
+                para.textContent="すごい！";
             }else if(count<=102 && count>=98){
-                para.innerHTML = "おしい〜";
+                para.textContent = "おしい〜";
                 // math=(count-term);
                 // para.innerHTML = math < 0 ? comment = `${bad + math * -1}早かったね` : comment = `${bad + math}遅かったね`;
             }
